@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/dtd/mybatis-3-mapper.dtd"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+<mapper namespace="DAO.BoardDAOImpl">
+	
+	<!-- 댓글리스트 -->
+	<select id="mComment" resultType="DTO.CommentDTO">
+		select * from comment where board_idx=#{param1} order by num desc
+	</select>
+	
+	<!-- 댓글 입력 -->
+	<insert id="commentGo">
+		insert into comment (board_idx, id, pass, content)
+			values (#{param1}, #{param2}, #{param3}, #{param4})
+	</insert>
+	
+	<!-- 댓글수정페이지 -->
+	<select id="commentModify" resultType="DTO.CommentDTO">
+		select * from comment where num=#{param1}
+	</select>
+	
+	<!-- 댓글 수정 처리 -->
+	<update id="commentAction" parameterType="DTO.CommentDTO">
+		UPDATE comment SET content=#{param1} WHERE num=#{param2};
+	</update>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="commentDelete">
+		delete from comment where num=#{param1}
+	</delete>
+	
+</mapper>	
