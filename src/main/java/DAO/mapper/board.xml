@@ -11,7 +11,7 @@
 	</select>
 	<!-- 게시판 상세보기 -->
 	<select id="boardView" resultType="DTO.BoardDTO">
-		select * from board where num=#{param1}
+		select * from board where num=#{num}
 	</select>
 	
 	

@@ -11,6 +11,7 @@ public interface BoardDAOImpl {
 	public ArrayList<BoardDTO> boardList();
 	//상세페이지
 	public BoardDTO boardView(int num);
+	
 	//게시글 삭제처리
 	public int boardDelete(int num);
 	//수정페이지

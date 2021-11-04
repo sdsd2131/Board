@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -81,7 +82,7 @@ public class ListController {
 	
 	//게시판 상세
 	@RequestMapping("/board/view.do")
-	public String View(Model model, HttpServletRequest req) {
+	public String View(Model model, HttpServletRequest req, @ModelAttribute BoardDTO param) {
 		
 		//절대경로
 		String path = req.getContextPath();
